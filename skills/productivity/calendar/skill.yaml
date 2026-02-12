@@ -1,0 +1,63 @@
+name: calendar
+version: 0.1.0
+author: goclaw
+description: Google Calendar integration
+category: productivity
+tags: [calendar, google, scheduling, events]
+
+config:
+  type: object
+  properties:
+    credentials_path:
+      type: string
+      description: Path to Google credentials JSON
+    calendar_id:
+      type: string
+      default: primary
+
+tools:
+  - name: list_events
+    description: List calendar events for a date range
+    parameters:
+      start_date:
+        type: string
+        description: Start date (YYYY-MM-DD)
+      end_date:
+        type: string
+        description: End date (YYYY-MM-DD)
+
+  - name: create_event
+    description: Create a new calendar event
+    parameters:
+      title:
+        type: string
+        required: true
+      start_time:
+        type: string
+        required: true
+        description: Start time (ISO 8601)
+      duration_minutes:
+        type: integer
+        default: 60
+
+  - name: delete_event
+    description: Delete a calendar event
+    parameters:
+      event_id:
+        type: string
+        required: true
+
+system_prompt: |
+  You have access to the user's Google Calendar.
+  When asked about schedule, use list_events.
+  When asked to schedule something, use create_event.
+  Always confirm before deleting events.
+
+triggers:
+  - "what's on my calendar"
+  - "schedule a meeting"
+  - "create an event"
+  - "check my schedule"
+  - "minha agenda"
+  - "agendar"
+  - "marcar reunião"

@@ -1,0 +1,34 @@
+// Package {{.Name}} implements the {{.Name}} skill for AgentGo Copilot.
+package {{.Name}}
+
+import (
+	"context"
+	"fmt"
+)
+
+// {{.StructName}}Skill implements the {{.Name}} skill.
+type {{.StructName}}Skill struct {
+	// Add your fields here
+}
+
+// New creates a new instance of the skill.
+func New(config map[string]any) (*{{.StructName}}Skill, error) {
+	return &{{.StructName}}Skill{}, nil
+}
+
+// Init initializes the skill with the given configuration.
+func (s *{{.StructName}}Skill) Init(_ context.Context, config map[string]any) error {
+	// TODO: Initialize your skill
+	return nil
+}
+
+// Execute runs the skill with the given input.
+func (s *{{.StructName}}Skill) Execute(_ context.Context, input string) (string, error) {
+	// TODO: Implement your skill logic
+	return fmt.Sprintf("{{.Name}} skill executed with: %s", input), nil
+}
+
+// Shutdown releases resources.
+func (s *{{.StructName}}Skill) Shutdown() error {
+	return nil
+}

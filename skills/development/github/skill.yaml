@@ -1,0 +1,62 @@
+name: github
+version: 0.1.0
+author: goclaw
+description: GitHub repository integration
+category: development
+tags: [github, git, issues, pull-requests, repositories]
+
+config:
+  type: object
+  properties:
+    token:
+      type: string
+      description: GitHub personal access token
+    default_owner:
+      type: string
+      description: Default repository owner/org
+
+tools:
+  - name: list_issues
+    description: List open issues in a repository
+    parameters:
+      repo:
+        type: string
+        required: true
+        description: "Repository (owner/repo)"
+      state:
+        type: string
+        default: "open"
+
+  - name: create_issue
+    description: Create a new issue
+    parameters:
+      repo:
+        type: string
+        required: true
+      title:
+        type: string
+        required: true
+      body:
+        type: string
+
+  - name: list_prs
+    description: List pull requests
+    parameters:
+      repo:
+        type: string
+        required: true
+      state:
+        type: string
+        default: "open"
+
+system_prompt: |
+  You can interact with GitHub repositories.
+  Use list_issues to check open issues.
+  Use create_issue to create new issues.
+  Use list_prs to check pull requests.
+
+triggers:
+  - "github issues"
+  - "pull requests"
+  - "create issue"
+  - "check repo"

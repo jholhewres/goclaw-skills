@@ -1,0 +1,59 @@
+# GoClaw Skills Index
+# Índice global de todas as skills disponíveis para o AgentGo Copilot.
+version: "1.0"
+updated: 2026-02-12
+
+skills:
+  # Produtividade
+  calendar:
+    path: skills/productivity/calendar
+    version: 0.1.0
+    category: productivity
+    tags: [google, calendar, scheduling]
+    description: Google Calendar integration
+
+  todoist:
+    path: skills/productivity/todoist
+    version: 0.1.0
+    category: productivity
+    tags: [todoist, tasks, todo]
+    description: Todoist task management
+
+  # Comunicação
+  gmail:
+    path: skills/communication/gmail
+    version: 0.1.0
+    category: communication
+    tags: [google, email, gmail]
+    description: Gmail email integration
+
+  # Desenvolvimento
+  github:
+    path: skills/development/github
+    version: 0.1.0
+    category: development
+    tags: [github, git, issues, pr]
+    description: GitHub repository integration
+
+  # Dados
+  websearch:
+    path: skills/data/websearch
+    version: 0.1.0
+    category: data
+    tags: [search, web, google]
+    description: Web search via APIs
+
+  # Utilidades (built-in)
+  weather:
+    path: skills/builtin/weather
+    version: 0.1.0
+    category: builtin
+    tags: [weather, forecast]
+    description: Weather information
+
+  calculator:
+    path: skills/builtin/calculator
+    version: 0.1.0
+    category: builtin
+    tags: [math, calculator]
+    description: Mathematical calculations

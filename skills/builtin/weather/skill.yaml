@@ -1,0 +1,50 @@
+name: weather
+version: 0.1.0
+author: goclaw
+description: Weather information and forecasts
+category: builtin
+tags: [weather, forecast, temperature]
+
+config:
+  type: object
+  properties:
+    api_key:
+      type: string
+      description: OpenWeatherMap API key
+    default_city:
+      type: string
+      default: "São Paulo"
+
+tools:
+  - name: get_weather
+    description: Get current weather for a city
+    parameters:
+      city:
+        type: string
+        description: City name
+        required: true
+
+  - name: get_forecast
+    description: Get weather forecast for next days
+    parameters:
+      city:
+        type: string
+        description: City name
+        required: true
+      days:
+        type: integer
+        description: Number of days (1-7)
+        default: 3
+
+system_prompt: |
+  You can check weather and forecasts for any city.
+  Use get_weather for current conditions.
+  Use get_forecast for upcoming days.
+
+triggers:
+  - "what's the weather"
+  - "weather in"
+  - "will it rain"
+  - "temperature"
+  - "previsão do tempo"
+  - "vai chover"
