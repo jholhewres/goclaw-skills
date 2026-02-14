@@ -1,60 +1,64 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "GoClaw Skill",
-  "description": "Schema de validação para skills do AgentGo Copilot",
+  "title": "GoClaw Skill (SKILL.md frontmatter)",
+  "description": "Schema for SKILL.md YAML frontmatter in GoClaw skills",
   "type": "object",
-  "required": ["name", "version", "description", "category"],
+  "required": ["name", "description"],
   "properties": {
     "name": {
       "type": "string",
-      "description": "Identificador único da skill",
+      "description": "Unique identifier for the skill (lowercase-with-dashes)",
       "pattern": "^[a-z][a-z0-9-]*$"
     },
     "version": {
       "type": "string",
-      "description": "Versão semântica",
+      "description": "Semantic version",
       "pattern": "^\\d+\\.\\d+\\.\\d+$"
     },
     "author": {
       "type": "string",
-      "description": "Autor ou organização"
+      "description": "Author or organization"
     },
     "description": {
       "type": "string",
-      "description": "Breve descrição da skill"
+      "description": "Brief description of the skill"
     },
     "category": {
       "type": "string",
-      "enum": ["productivity", "communication", "development", "data", "automation", "ai", "finance", "monitoring", "builtin", "community"]
+      "enum": ["builtin", "data", "development", "productivity", "communication", "automation", "ai", "finance", "monitoring", "community"]
     },
     "tags": {
       "type": "array",
       "items": { "type": "string" }
     },
-    "config": {
+    "requires": {
       "type": "object",
-      "description": "Schema de configuração da skill"
-    },
-    "tools": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["name", "description"],
-        "properties": {
-          "name": { "type": "string" },
-          "description": { "type": "string" },
-          "parameters": { "type": "object" }
+      "properties": {
+        "bins": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Required CLI tools (all must be present)"
+        },
+        "any_bins": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "CLI tools (at least one must be present)"
+        },
+        "env": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Required environment variables"
+        },
+        "any_env": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Environment variables (at least one must be set)"
         }
       }
     },
-    "system_prompt": {
-      "type": "string",
-      "description": "Instruções injetadas no system prompt"
-    },
-    "triggers": {
-      "type": "array",
-      "items": { "type": "string" },
-      "description": "Padrões de linguagem natural que ativam a skill"
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for OpenClaw/ClawHub compatibility"
     }
   }
 }
