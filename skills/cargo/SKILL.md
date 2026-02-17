@@ -6,6 +6,23 @@ description: "Rust development: build, test, clippy, publish"
 
 Use the **bash** tool for Rust development with Cargo.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v cargo && cargo --version
+   ```
+
+2. **Install (rustup provides cargo):**
+   ```bash
+   # macOS
+   brew install rustup-init && rustup-init
+
+   # Official installer (cross-platform)
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   source $HOME/.cargo/env
+   ```
+
 ## Build & Run
 ```bash
 cargo build

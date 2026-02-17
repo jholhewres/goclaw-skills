@@ -5,7 +5,15 @@ metadata: {"openclaw":{"always":false,"emoji":"🛡️"}}
 ---
 # Security Dependencies Audit
 
-Verificar vulnerabilidades em dependências de projetos.
+Verify vulnerabilities in project dependencies.
+
+## Setup
+
+**Audit tools** (install per language as needed):
+- **Node.js**: `brew install node` (macOS) or `sudo apt install nodejs npm` (Ubuntu) — `npm audit` included
+- **Go**: `go install golang.org/x/vuln/cmd/govulncheck@latest`
+- **Python**: `pip install pip-audit` (or `pip install safety` for alternative)
+- **Rust**: `cargo install cargo-audit`
 
 ## Node.js (npm)
 

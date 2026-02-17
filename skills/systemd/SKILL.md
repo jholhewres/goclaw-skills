@@ -6,6 +6,16 @@ description: "Manage Linux services with systemctl and journalctl"
 
 Use **bash** and **ssh** tools to manage Linux services.
 
+## Setup
+
+```bash
+# Check if installed (Linux only, pre-installed on most distros)
+command -v systemctl && command -v journalctl
+
+# No install needed — systemd is the init system on most modern Linux distributions.
+# Not available on macOS or Windows.
+```
+
 ## Services
 ```bash
 systemctl status <service>

@@ -15,12 +15,19 @@ Interact with Linear using their GraphQL API.
 
 ## Setup
 
-1. Go to Settings > API in Linear
-2. Create a Personal API Key
-3. Set environment variable:
-   ```bash
-   export LINEAR_API_KEY="lin_api_xxx"
+1. **Check existing credentials:**
    ```
+   vault_get linear_api_key
+   ```
+
+2. **If not configured:**
+   - Go to https://linear.app/settings/api
+   - Create a Personal API Key
+   - Save to vault:
+     ```
+     vault_save linear_api_key "lin_api_xxx"
+     ```
+   The key is auto-injected as `$LINEAR_API_KEY`.
 
 ## GraphQL Endpoint
 

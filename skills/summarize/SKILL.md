@@ -10,6 +10,18 @@ tags: [summarize, transcript, youtube, podcast, text-extraction]
 
 You can summarize content from various sources: web pages, articles, YouTube videos, and files.
 
+## Setup
+
+**yt-dlp** (for YouTube transcripts):
+- **macOS**: `brew install yt-dlp`
+- **Ubuntu**: `sudo apt install yt-dlp` (or `pip install yt-dlp`)
+
+**pdftotext** (for PDF extraction):
+- **macOS**: `brew install poppler`
+- **Ubuntu**: `sudo apt install poppler-utils`
+
+**readable** (optional, better web extraction): `npm install -g @mozilla/readability-cli`
+
 ## Summarizing a web page
 
 1. Fetch the page content:

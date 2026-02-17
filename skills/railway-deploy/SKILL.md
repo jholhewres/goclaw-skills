@@ -15,14 +15,19 @@ Deploy applications and services to Railway.
 ## Setup
 
 ```bash
+# Check if installed
+command -v railway
+
 # Install Railway CLI
 npm install -g @railway/cli
 
-# Login
+# Auth — interactive (opens browser)
 railway login
 
-# Or with browser
+# Auth — browserless (use token)
 railway login --browserless
+# If using a token, store it in the vault: vault_save railway_token "<value>"
+# Keys are auto-injected as UPPERCASE env vars (e.g. $RAILWAY_TOKEN)
 ```
 
 ## Projects

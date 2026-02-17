@@ -15,15 +15,23 @@ Interact with Gmail using the Gmail API.
 
 ## Setup
 
-1. Go to Google Cloud Console: https://console.cloud.google.com
-2. Create project, enable Gmail API
-3. Configure OAuth 2.0 consent screen
-4. Create OAuth credentials (Desktop app)
-5. Get access token via OAuth flow
-6. Set environment variable:
-   ```bash
-   export GMAIL_ACCESS_TOKEN="ya29.a0..."
+1. **Check existing credentials:**
    ```
+   vault_get gmail_access_token
+   ```
+
+2. **If not configured:**
+   - Go to Google Cloud Console: https://console.cloud.google.com
+   - Create project, enable Gmail API
+   - Configure OAuth 2.0 consent screen
+   - Create OAuth credentials (Desktop app)
+   - Get access token via OAuth flow
+   - Save to vault:
+     ```
+     vault_save gmail_access_token "ya29.a0..."
+     ```
+   The token is auto-injected as `$GMAIL_ACCESS_TOKEN`.
+   Note: Access tokens expire after ~1 hour; refresh and re-save when needed.
 
 ## List Messages
 

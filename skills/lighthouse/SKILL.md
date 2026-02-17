@@ -7,6 +7,30 @@ metadata: {"openclaw":{"always":false,"emoji":"🏠"}}
 
 Auditoria de performance, acessibilidade, SEO e best practices para sites.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v node && node --version
+   command -v npx && npx lighthouse --version 2>/dev/null || npm list -g lighthouse 2>/dev/null
+   ```
+
+2. **Install:**
+   ```bash
+   # Node.js (required for npx / lighthouse)
+   # macOS
+   brew install node
+
+   # Ubuntu / Debian
+   sudo apt update && sudo apt install -y nodejs npm
+
+   # Lighthouse (use npx, no install needed)
+   npx lighthouse <url> --output=json --chrome-flags="--headless --no-sandbox"
+
+   # Or install globally
+   npm install -g lighthouse
+   ```
+
 ## Rodar Auditoria
 
 ```bash

@@ -7,6 +7,19 @@ metadata: {"openclaw":{"always":false,"emoji":"🌍"}}
 
 Gerenciamento de Nginx: configuração, proxy reverso, SSL.
 
+## Setup
+
+```bash
+# Check if installed
+command -v nginx
+
+# Install — macOS
+brew install nginx
+
+# Install — Ubuntu/Debian
+sudo apt install nginx
+```
+
 ## Comandos Básicos
 
 ```bash

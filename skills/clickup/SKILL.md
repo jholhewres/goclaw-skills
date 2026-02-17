@@ -15,12 +15,19 @@ Interact with ClickUp using their REST API.
 
 ## Setup
 
-1. Go to Settings > Apps in ClickUp
-2. Generate an API Token
-3. Set environment variable:
-   ```bash
-   export CLICKUP_API_TOKEN="pk_xxx"
+1. **Check existing credentials:**
    ```
+   vault_get clickup_api_token
+   ```
+
+2. **If not configured:**
+   - Go to https://app.clickup.com/settings/apps
+   - Generate an API Token
+   - Save to vault:
+     ```
+     vault_save clickup_api_token "pk_xxx"
+     ```
+   The token is auto-injected as `$CLICKUP_API_TOKEN`.
 
 ## Get Authorized User & Workspaces
 

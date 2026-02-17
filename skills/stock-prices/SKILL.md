@@ -8,9 +8,23 @@ tags: [stocks, finance, market, trading, quotes]
 requires:
   bins: [curl, jq]
 ---
+
 # Stock Prices
 
 Get stock prices, market data, and financial information.
+
+## Setup
+
+**API keys** (when using paid/rate-limited APIs; store in vault, never use `export`):
+- Alpha Vantage: `vault_save alphavantage_key "your_key"`
+- Finnhub: `vault_save finnhub_key "your_key"`
+- Twelve Data: `vault_save twelvedata_key "your_key"`
+- Polygon: `vault_save polygon_key "your_key"`
+- Check: `vault_get alphavantage_key` — keys auto-inject as uppercase env vars
+
+**yfinance** (Python, free, no key): `pip install yfinance`
+
+Yahoo Finance (yfinance) and CoinGecko work without API keys.
 
 ## Yahoo Finance (yfinance - Free)
 
@@ -52,9 +66,6 @@ for symbol, ticker in tickers.tickers.items():
 ## Alpha Vantage (Free API)
 
 ```bash
-# Setup
-export ALPHAVANTAGE_KEY="your_key"
-
 # Get quote
 curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=$ALPHAVANTAGE_KEY" | jq '."Global Quote"'
 
@@ -71,9 +82,6 @@ curl -s "https://www.alphavantage.co/query?function=OVERVIEW&symbol=AAPL&apikey=
 ## Finnhub (Free API)
 
 ```bash
-# Setup
-export FINNHUB_KEY="your_key"
-
 # Get quote
 curl -s "https://finnhub.io/api/v1/quote?symbol=AAPL&token=$FINNHUB_KEY" | jq '.'
 
@@ -90,9 +98,6 @@ curl -s "https://finnhub.io/api/v1/stock/metric?symbol=AAPL&metric=all&token=$FI
 ## Twelve Data (Free API)
 
 ```bash
-# Setup
-export TWELVEDATA_KEY="your_key"
-
 # Get quote
 curl -s "https://api.twelvedata.com/quote?symbol=AAPL&apikey=$TWELVEDATA_KEY" | jq '.'
 
@@ -106,9 +111,6 @@ curl -s "https://api.twelvedata.com/price?symbol=AAPL&apikey=$TWELVEDATA_KEY" | 
 ## Polygon.io
 
 ```bash
-# Setup
-export POLYGON_KEY="your_key"
-
 # Previous close
 curl -s "https://api.polygon.io/v2/aggs/ticker/AAPL/prev?adjusted=true&apiKey=$POLYGON_KEY" | jq '.results[0]'
 

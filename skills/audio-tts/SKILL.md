@@ -12,12 +12,21 @@ requires:
 
 Convert text to speech and manipulate audio files.
 
+## Setup
+
+**API keys** (store in vault, never use `export`):
+- OpenAI: `vault_save openai_api_key "sk-xxx"`
+- ElevenLabs: `vault_save elevenlabs_api_key "xxx"`
+- Google TTS: `vault_save google_tts_key "xxx"`
+- Check: `vault_get openai_api_key` — keys auto-inject as uppercase env vars (e.g. `OPENAI_API_KEY`)
+
+**CLI tools** (for audio manipulation and free TTS):
+- **macOS**: `brew install ffmpeg` (for Option 5 and audio manipulation); `espeak` via `brew install espeak`
+- **Ubuntu**: `sudo apt install ffmpeg espeak-ng`
+
 ## Option 1: OpenAI TTS (Recommended)
 
 ```bash
-# Setup
-export OPENAI_API_KEY="sk-xxx"
-
 # Text to speech
 curl -s -X POST "https://api.openai.com/v1/audio/speech" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
@@ -56,9 +65,6 @@ curl -s "https://api.elevenlabs.io/v1/voices" \
 ## Option 3: Google Cloud TTS
 
 ```bash
-# Setup
-export GOOGLE_TTS_KEY="xxx"
-
 # Synthesize speech
 curl -s -X POST "https://texttospeech.googleapis.com/v1/text:synthesize?key=$GOOGLE_TTS_KEY" \
   -H "Content-Type: application/json" \

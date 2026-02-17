@@ -14,10 +14,14 @@ Automate web browsers using Playwright for testing, scraping, and automation.
 
 ## Setup
 
+**Node.js** (required):
+- **macOS**: `brew install node`
+- **Ubuntu**: `sudo apt install nodejs npm`
+
+**Playwright** (browsers):
 ```bash
-# Install Playwright
-npm install -g playwright
-npx playwright install
+npm install -g playwright   # or: npm install playwright (project dependency)
+npx playwright install        # downloads Chromium, Firefox, WebKit
 ```
 
 ## Quick Scripts

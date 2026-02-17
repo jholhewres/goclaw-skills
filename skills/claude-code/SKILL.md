@@ -6,11 +6,26 @@ description: "Full-stack coding assistant powered by Claude Code CLI"
 
 Use the **bash** tool with the Claude Code CLI for advanced coding tasks.
 
-## Requirements
-```bash
-npm install -g @anthropic-ai/claude-code
-claude setup-token   # or claude login
-```
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v claude && claude --version
+   ```
+
+2. **Install:**
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+3. **Auth:** Use the vault for `ANTHROPIC_API_KEY`. Stored keys are auto-injected as env vars (UPPERCASE).
+   ```bash
+   # Save to vault (key name lowercase)
+   vault_save anthropic_api_key "sk-ant-..."
+
+   # Or interactive
+   claude setup-token
+   ```
 
 ## Usage
 ```bash

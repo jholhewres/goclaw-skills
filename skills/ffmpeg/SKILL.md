@@ -6,6 +6,19 @@ description: "Video and audio processing with ffmpeg"
 
 Use the **bash** tool with ffmpeg for media processing.
 
+## Setup
+
+```bash
+# Check if installed
+command -v ffmpeg && command -v ffprobe
+
+# Install — macOS
+brew install ffmpeg
+
+# Install — Ubuntu/Debian
+sudo apt install ffmpeg
+```
+
 ## Info
 ```bash
 ffprobe -v quiet -print_format json -show_format -show_streams <input>

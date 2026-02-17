@@ -12,6 +12,14 @@ requires:
 
 Backup and restore files, databases, and systems.
 
+## Setup
+
+**Base tools** (often pre-installed):
+- **macOS**: rsync, tar included; for DB tools: `brew install postgresql mysql` (pg_dump, mysqldump), `brew install mongodb/brew/mongodb-database-tools` (mongodump)
+- **Ubuntu**: `sudo apt install rsync` (tar usually included), `sudo apt install postgresql-client default-mysql-client mongodb-database-tools` for DB backups
+
+**Cloud**: `rclone config` for multi-cloud; `aws configure` for S3.
+
 ## File Backups
 
 ### rsync (Incremental)

@@ -12,6 +12,16 @@ requires:
 
 You can search the web for current information, news, and recent events.
 
+## Setup
+
+```bash
+# Optional: Brave Search API key improves results. Fallback: DuckDuckGo (no key).
+# Check: vault_get brave_api_key
+# Save:  vault_save brave_api_key "<value>"
+# Register: https://api.search.brave.com/register
+# Keys use lowercase_underscore; auto-inject as UPPERCASE env vars ($BRAVE_API_KEY)
+```
+
 ## Using Brave Search API (preferred — if `BRAVE_API_KEY` is available)
 
 ```bash

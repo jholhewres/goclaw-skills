@@ -15,12 +15,19 @@ Interact with Asana using their REST API.
 
 ## Setup
 
-1. Go to https://app.asana.com/app/asana/-/account_management/apps
-2. Create a Personal Access Token
-3. Set environment variable:
-   ```bash
-   export ASANA_ACCESS_TOKEN="x_xxx"
+1. **Check existing credentials:**
    ```
+   vault_get asana_access_token
+   ```
+
+2. **If not configured:**
+   - Go to https://app.asana.com/0/developer-console
+   - Create a Personal Access Token
+   - Save to vault:
+     ```
+     vault_save asana_access_token "x_xxx"
+     ```
+   The token is auto-injected as `$ASANA_ACCESS_TOKEN`.
 
 ## List Workspaces & Projects
 

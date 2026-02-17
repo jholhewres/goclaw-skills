@@ -14,10 +14,20 @@ Manage Notion pages, databases, and blocks via the REST API.
 
 ## Setup
 
-1. Create an integration at https://notion.so/my-integrations
-2. Copy the API key (starts with `ntn_` or `secret_`)
-3. Store it in the vault: `copilot config vault-set NOTION_API_KEY=ntn_your_key`
-4. **Important:** Share target pages/databases with your integration (click "..." → "Connect to" → integration name)
+1. **Check existing credentials:**
+   ```
+   vault_get notion_api_key
+   ```
+
+2. **If not configured:**
+   - Go to https://www.notion.so/my-integrations and create an integration
+   - Copy the API key (starts with `ntn_` or `secret_`)
+   - Save to vault:
+     ```
+     vault_save notion_api_key "ntn-your-key-here"
+     ```
+   The key is auto-injected as `$NOTION_API_KEY`.
+   - **Important:** Share target pages/databases with your integration (click "..." → "Connect to" → integration name)
 
 ## API Basics
 

@@ -6,6 +6,14 @@ description: "Analyze JS bundle size with Vite/Webpack analyzers"
 
 Use the **bash** tool to analyze JavaScript bundle sizes.
 
+## Setup
+
+**Node.js** (required for npx):
+- **macOS**: `brew install node`
+- **Ubuntu**: `sudo apt install nodejs npm`
+
+Run `npm run build` first to generate stats; then use npx with vite-bundle-visualizer, webpack-bundle-analyzer, etc.
+
 ## Vite
 ```bash
 npx vite-bundle-visualizer 2>/dev/null

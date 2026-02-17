@@ -6,6 +6,22 @@ description: "Terminal multiplexing with tmux"
 
 Use the **bash** tool for tmux session management.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v tmux && tmux -V
+   ```
+
+2. **Install:**
+   ```bash
+   # macOS
+   brew install tmux
+
+   # Ubuntu / Debian
+   sudo apt update && sudo apt install -y tmux
+   ```
+
 ## Sessions
 ```bash
 tmux new -s <name>

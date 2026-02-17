@@ -12,6 +12,14 @@ requires:
 
 Check cryptocurrency balances, addresses, and transactions.
 
+## Setup
+
+**API keys** (optional; Etherscan for higher rate limits; store in vault, never use `export`):
+- Etherscan: `vault_save etherscan_api_key "your_key"`
+- Check: `vault_get etherscan_api_key` — keys auto-inject as uppercase env vars
+
+Bitcoin (blockchain.info), BlockCypher, CoinGecko, CoinCap, and Solana RPC work without keys.
+
 ## Bitcoin
 
 ```bash
@@ -35,8 +43,7 @@ curl -s "https://blockchain.info/rawtx/TX_HASH" | jq '{hash, size, block_height}
 ## Ethereum
 
 ```bash
-# Check balance (etherscan.io)
-export ETHERSCAN_API_KEY="your_key"
+# Check balance (etherscan.io — optional API key for higher rate limits)
 curl -s "https://api.etherscan.io/api?module=account&action=balance&address=ADDRESS&tag=latest&apikey=$ETHERSCAN_API_KEY" | jq '.result'
 
 # Get ETH price

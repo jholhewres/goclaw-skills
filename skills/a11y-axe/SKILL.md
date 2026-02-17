@@ -6,6 +6,14 @@ description: "Accessibility audit with axe-core via browser injection"
 
 Use the **bash** tool with npx to run accessibility audits.
 
+## Setup
+
+**Node.js** (required for npx):
+- **macOS**: `brew install node`
+- **Ubuntu**: `sudo apt install nodejs npm`
+
+Use `npx @axe-core/cli` (no global install needed), or `npm install -g @axe-core/cli` for global install.
+
 ## Quick Audit
 ```bash
 npx @axe-core/cli <URL> --stdout 2>/dev/null | head -100

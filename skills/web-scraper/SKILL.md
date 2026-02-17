@@ -12,6 +12,17 @@ requires:
 
 Extract data from websites using various tools.
 
+## Setup
+
+```bash
+# curl and jq are usually pre-installed or easy to install
+command -v curl && command -v jq
+
+# For browser automation (Option 4 — Playwright), install:
+npx playwright install
+# Or: npm install -g playwright && npx playwright install
+```
+
 ## Option 1: curl + HTML Parsing
 
 ```bash

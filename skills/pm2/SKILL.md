@@ -6,6 +6,17 @@ description: "Process management with PM2"
 
 Use the **bash** tool for PM2 process management.
 
+## Setup
+
+```bash
+# Check if installed
+command -v pm2
+
+# Install (requires Node.js)
+# If Node.js is missing — macOS: brew install node
+npm install -g pm2
+```
+
 ## Manage
 ```bash
 pm2 start <script> --name <name>

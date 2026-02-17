@@ -7,6 +7,33 @@ metadata: {"openclaw":{"always":false,"emoji":"☁️"}}
 
 Interface com serviços AWS via aws cli.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v aws && aws --version
+   ```
+
+2. **Install:**
+   ```bash
+   # macOS
+   brew install awscli
+
+   # Official installer (Linux/macOS)
+   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   unzip awscliv2.zip && sudo ./aws/install && rm -rf aws awscliv2.zip
+   ```
+
+3. **Credentials:** Use the vault for secrets. Stored keys are auto-injected as env vars (UPPERCASE).
+   ```bash
+   # Save to vault (key names lowercase)
+   vault_save aws_access_key_id "AKIA..."
+   vault_save aws_secret_access_key "secret..."
+   vault_save aws_default_region "us-east-1"
+
+   # Or interactive: aws configure
+   ```
+
 ## S3
 
 ```bash

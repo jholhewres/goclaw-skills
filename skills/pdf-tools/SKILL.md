@@ -19,7 +19,7 @@ Manipulate PDF files using command-line tools.
 sudo apt install qpdf pdftk ghostscript poppler-utils
 
 # macOS
-brew install qpdf pdftk ghostscript poppler
+brew install qpdf pdftk-java ghostscript poppler
 ```
 
 ## Merge PDFs

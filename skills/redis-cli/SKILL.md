@@ -7,6 +7,19 @@ metadata: {"openclaw":{"always":false,"emoji":"🔴"}}
 
 Interface com Redis para cache, filas e dados em memória.
 
+## Setup
+
+```bash
+# Check if installed
+command -v redis-cli
+
+# Install — macOS
+brew install redis
+
+# Install — Ubuntu/Debian
+sudo apt install redis-tools
+```
+
 ## Conexão
 
 ```bash

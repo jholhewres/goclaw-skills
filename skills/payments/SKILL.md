@@ -12,12 +12,20 @@ requires:
 
 Process payments using various payment providers.
 
+## Setup
+
+**API keys** (store in vault, never use `export`):
+- Stripe: `vault_save stripe_secret_key "sk_test_xxx"`
+- PayPal: `vault_save paypal_client_id "xxx"` and `vault_save paypal_secret "xxx"`
+- Lightning (Alby): `vault_save alby_access_token "xxx"`
+- OpenNode: `vault_save opennode_key "xxx"`
+- Check: `vault_get stripe_secret_key` — keys auto-inject as uppercase env vars
+
+Set `PAYPAL_API` manually for sandbox (`https://api-m.sandbox.paypal.com`) or live (`https://api-m.paypal.com`).
+
 ## Stripe
 
 ```bash
-# Setup
-export STRIPE_SECRET_KEY="sk_test_xxx"
-
 # Create payment intent
 curl -s -X POST "https://api.stripe.com/v1/payment_intents" \
   -u "$STRIPE_SECRET_KEY:" \
@@ -56,11 +64,7 @@ curl -s -X POST "https://api.stripe.com/v1/checkout/sessions" \
 ## PayPal
 
 ```bash
-# Setup
-export PAYPAL_CLIENT_ID="xxx"
-export PAYPAL_SECRET="xxx"
-export PAYPAL_API="https://api-m.sandbox.paypal.com"  # or api-m.paypal.com for live
-
+# PAYPAL_API: https://api-m.sandbox.paypal.com (sandbox) or api-m.paypal.com (live)
 # Get access token
 ACCESS_TOKEN=$(curl -s -X POST "$PAYPAL_API/v1/oauth2/token" \
   -u "$PAYPAL_CLIENT_ID:$PAYPAL_SECRET" \
@@ -86,9 +90,6 @@ curl -s -X POST "$PAYPAL_API/v2/checkout/orders/ORDER_ID/capture" \
 ## Lightning Network (Alby)
 
 ```bash
-# Setup
-export ALBY_ACCESS_TOKEN="xxx"
-
 # Get balance
 curl -s "https://api.getalby.com/balance" \
   -H "Authorization: Bearer $ALBY_ACCESS_TOKEN" | jq '.'
@@ -113,9 +114,6 @@ curl -s "https://api.getalby.com/invoices/PAYMENT_HASH" \
 ## OpenNode (Bitcoin)
 
 ```bash
-# Setup
-export OPENNODE_KEY="xxx"
-
 # Create invoice
 curl -s -X POST "https://api.opennode.com/v1/charges" \
   -H "Authorization: $OPENNODE_KEY" \

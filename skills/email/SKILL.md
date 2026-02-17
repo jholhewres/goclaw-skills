@@ -12,12 +12,47 @@ requires:
 
 Send emails using various email services.
 
+## Setup
+
+1. **Check existing credentials** (per provider):
+   ```
+   vault_get resend_api_key
+   vault_get sendgrid_api_key
+   vault_get mailgun_api_key
+   vault_get mailgun_domain
+   vault_get postmark_server_token
+   ```
+
+2. **If not configured,** choose one provider and save to vault:
+
+   - **Resend** (recommended): https://resend.com/api-keys
+     ```
+     vault_save resend_api_key "re_xxx"
+     ```
+     Auto-injected as `$RESEND_API_KEY`.
+
+   - **SendGrid**: https://app.sendgrid.com/settings/api_keys
+     ```
+     vault_save sendgrid_api_key "SG.xxx"
+     ```
+     Auto-injected as `$SENDGRID_API_KEY`.
+
+   - **Mailgun**: https://app.mailgun.com/settings/api_security
+     ```
+     vault_save mailgun_api_key "key-xxx"
+     vault_save mailgun_domain "mg.example.com"
+     ```
+     Auto-injected as `$MAILGUN_API_KEY` and `$MAILGUN_DOMAIN`.
+
+   - **Postmark**: https://account.postmarkapp.com/servers
+     ```
+     vault_save postmark_server_token "xxx-xxx-xxx"
+     ```
+     Auto-injected as `$POSTMARK_SERVER_TOKEN`.
+
 ## Option 1: Resend (Recommended - Free tier)
 
 ```bash
-# Setup
-export RESEND_API_KEY="re_xxx"
-
 # Send email
 curl -s -X POST "https://api.resend.com/emails" \
   -H "Authorization: Bearer $RESEND_API_KEY" \
@@ -33,9 +68,6 @@ curl -s -X POST "https://api.resend.com/emails" \
 ## Option 2: SendGrid
 
 ```bash
-# Setup
-export SENDGRID_API_KEY="SG.xxx"
-
 # Send email
 curl -s -X POST "https://api.sendgrid.com/v3/mail/send" \
   -H "Authorization: Bearer $SENDGRID_API_KEY" \
@@ -51,10 +83,6 @@ curl -s -X POST "https://api.sendgrid.com/v3/mail/send" \
 ## Option 3: Mailgun
 
 ```bash
-# Setup
-export MAILGUN_API_KEY="key-xxx"
-export MAILGUN_DOMAIN="mg.example.com"
-
 # Send email
 curl -s -X POST "https://api.mailgun.net/v3/$MAILGUN_DOMAIN/messages" \
   -u "api:$MAILGUN_API_KEY" \
@@ -67,9 +95,6 @@ curl -s -X POST "https://api.mailgun.net/v3/$MAILGUN_DOMAIN/messages" \
 ## Option 4: Postmark
 
 ```bash
-# Setup
-export POSTMARK_SERVER_TOKEN="xxx-xxx-xxx"
-
 # Send email
 curl -s -X POST "https://api.postmarkapp.com/email" \
   -H "X-Postmark-Server-Token: $POSTMARK_SERVER_TOKEN" \

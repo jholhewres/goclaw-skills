@@ -6,6 +6,19 @@ description: "Image processing with ImageMagick (convert, magick)"
 
 Use the **bash** tool with magick (v7) or convert (v6) for image processing.
 
+## Setup
+
+```bash
+# Check if installed (magick = v7, convert = v6)
+command -v magick || command -v convert
+
+# Install — macOS
+brew install imagemagick
+
+# Install — Ubuntu/Debian
+sudo apt install imagemagick
+```
+
 ## Info
 ```bash
 magick identify -verbose <image>

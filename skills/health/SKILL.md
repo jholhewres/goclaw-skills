@@ -12,6 +12,17 @@ requires:
 
 Monitor system health, services, and uptime.
 
+## Setup
+
+**API keys** (optional; for UptimeRobot, Healthchecks.io, Slack, Resend; store in vault, never use `export`):
+- UptimeRobot: `vault_save uptimerobot_key "xxx"`
+- Healthchecks.io: `vault_save healthchecks_uuid "xxx"`
+- Slack webhook: `vault_save slack_webhook_url "xxx"`
+- Resend: `vault_save resend_api_key "xxx"`
+- Keys auto-inject as uppercase env vars.
+
+curl, jq, nc, openssl are usually pre-installed. For systemd/Docker checks, those tools must be available.
+
 ## HTTP Health Checks
 
 ```bash
@@ -93,9 +104,6 @@ echo | openssl s_client -connect example.com:443 2>/dev/null | openssl x509 -noo
 ### UptimeRobot API
 
 ```bash
-# Setup
-export UPTIMEROBOT_KEY="xxx"
-
 # Get monitors
 curl -s -X POST "https://api.uptimerobot.com/v2/getMonitors" \
   -H "Cache-Control: no-cache" \
@@ -115,9 +123,6 @@ curl -s -X POST "https://api.uptimerobot.com/v2/getMonitors" \
 ### Healthchecks.io
 
 ```bash
-# Setup
-export HEALTHCHECKS_UUID="xxx"
-
 # Ping (mark as alive)
 curl -s "https://hc-ping.com/$HEALTHCHECKS_UUID"
 

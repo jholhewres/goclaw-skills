@@ -6,6 +6,27 @@ description: "Azure CLI for VMs, App Service, Blob Storage, Azure SQL"
 
 Use the **bash** tool with the az CLI for Azure cloud operations.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v az && az --version
+   ```
+
+2. **Install:**
+   ```bash
+   # macOS
+   brew install azure-cli
+
+   # Ubuntu / Debian (official script)
+   curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+   ```
+
+3. **Auth:**
+   ```bash
+   az login
+   ```
+
 ## Auth & Account
 ```bash
 az login

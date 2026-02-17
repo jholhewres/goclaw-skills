@@ -15,13 +15,20 @@ Interact with Telegram using the Bot API.
 
 ## Setup
 
-1. Talk to @BotFather on Telegram
-2. Send `/newbot` and follow instructions
-3. Copy the bot token
-4. Set environment variable:
-   ```bash
-   export TELEGRAM_BOT_TOKEN="123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
+1. **Check existing credentials:**
    ```
+   vault_get telegram_bot_token
+   ```
+
+2. **If not configured:**
+   - Talk to @BotFather on Telegram
+   - Send `/newbot` and follow instructions
+   - Copy the bot token
+   - Save to vault:
+     ```
+     vault_save telegram_bot_token "123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
+     ```
+   The token is auto-injected as `$TELEGRAM_BOT_TOKEN`.
 
 ## Get Chat ID
 

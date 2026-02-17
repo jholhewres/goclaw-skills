@@ -7,21 +7,39 @@ category: communication
 tags: [discord, messaging, gaming, communities, webhooks]
 requires:
   bins: [curl, jq]
-  env: [DISCORD_WEBHOOK_URL]
+  env: [DISCORD_WEBHOOK_URL, DISCORD_BOT_TOKEN]
 ---
 # Discord
 
 Interact with Discord using webhooks or the Bot API.
 
-## Setup (Webhook - Easiest)
+## Setup
 
-1. Go to Server Settings > Integrations > Webhooks
-2. Click "New Webhook", name it, select channel
-3. Copy the Webhook URL
-4. Set environment variable:
-   ```bash
-   export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/ID/TOKEN"
+1. **Check existing credentials:**
    ```
+   vault_get discord_webhook_url
+   vault_get discord_bot_token
+   ```
+   Use webhook URL for simple notifications; use bot token for full Bot API (channels, messages, guilds).
+
+2. **Webhook (easiest):**
+   - Go to Server Settings > Integrations > Webhooks in your Discord server
+   - Click "New Webhook", name it, select channel
+   - Copy the Webhook URL
+   - Save to vault:
+     ```
+     vault_save discord_webhook_url "https://discord.com/api/webhooks/ID/TOKEN"
+     ```
+   The URL is auto-injected as `$DISCORD_WEBHOOK_URL`.
+
+3. **Bot API (more features):**
+   - Go to https://discord.com/developers/applications
+   - Create an application, add a bot, copy the Bot Token
+   - Save to vault:
+     ```
+     vault_save discord_bot_token "your-bot-token"
+     ```
+   The token is auto-injected as `$DISCORD_BOT_TOKEN`.
 
 ## Send Messages (Webhook)
 
@@ -59,8 +77,7 @@ curl -s -X POST "$DISCORD_WEBHOOK_URL" \
 ## Bot API (More Features)
 
 ```bash
-# Requires DISCORD_BOT_TOKEN
-export DISCORD_BOT_TOKEN="your-bot-token"
+# Requires DISCORD_BOT_TOKEN (stored in vault)
 
 # Send message to channel
 curl -s -X POST "https://discord.com/api/v10/channels/CHANNEL_ID/messages" \

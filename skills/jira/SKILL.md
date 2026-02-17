@@ -15,14 +15,23 @@ Manage Jira issues, transitions, and worklogs via the Jira Cloud REST API.
 
 ## Setup
 
-1. Get API token: https://id.atlassian.com/manage-profile/security/api-tokens
-2. Click "Create API Token"
-3. Set environment variables:
-   ```bash
-   export JIRA_URL="https://your-domain.atlassian.net"
-   export JIRA_EMAIL="you@example.com"
-   export JIRA_API_TOKEN="your-api-token"
+1. **Check existing credentials:**
    ```
+   vault_get jira_url
+   vault_get jira_email
+   vault_get jira_api_token
+   ```
+
+2. **If not configured:**
+   - Get API token: https://id.atlassian.com/manage-profile/security/api-tokens
+   - Click "Create API Token"
+   - Save to vault (three separate calls):
+     ```
+     vault_save jira_url "https://your-domain.atlassian.net"
+     vault_save jira_email "you@example.com"
+     vault_save jira_api_token "your-api-token"
+     ```
+   Keys are auto-injected as `$JIRA_URL`, `$JIRA_EMAIL`, and `$JIRA_API_TOKEN`.
 
 ## Authentication
 

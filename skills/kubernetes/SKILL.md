@@ -7,6 +7,26 @@ metadata: {"openclaw":{"always":false,"emoji":"☸️"}}
 
 Gerenciamento de clusters Kubernetes via kubectl.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v kubectl && kubectl version --client
+   ```
+
+2. **Install:**
+   ```bash
+   # macOS
+   brew install kubectl
+
+   # Ubuntu / Debian
+   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+
+   # Or via apt (see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+   sudo apt update && sudo apt install -y kubectl
+   ```
+
 ## Recursos Básicos
 
 ```bash

@@ -6,6 +6,28 @@ description: "Python package management with pip, poetry, and pipenv"
 
 Use the **bash** tool for Python dependency management.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v python3 && python3 --version
+   command -v pip && pip --version
+   command -v poetry && poetry --version
+   ```
+
+2. **Install:**
+   ```bash
+   # Python & pip
+   # macOS
+   brew install python3
+
+   # Ubuntu / Debian
+   sudo apt update && sudo apt install -y python3 python3-pip
+
+   # Poetry (official installer)
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
+
 ## pip
 ```bash
 pip install <pkg>

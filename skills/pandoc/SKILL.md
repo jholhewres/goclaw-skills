@@ -6,6 +6,23 @@ description: "Document conversion between formats with Pandoc"
 
 Use the **bash** tool with pandoc for document format conversion.
 
+## Setup
+
+```bash
+# Check if installed
+command -v pandoc
+
+# Install — macOS
+brew install pandoc
+
+# Install — Ubuntu/Debian
+sudo apt install pandoc
+
+# PDF output also requires LaTeX:
+#   Ubuntu/Debian: sudo apt install texlive-latex-base
+#   macOS: brew install --cask mactex (or basictex for lighter install)
+```
+
 ## Common Conversions
 ```bash
 pandoc input.md -o output.pdf

@@ -12,6 +12,28 @@ requires:
 
 Interact with various databases using CLI tools.
 
+## Setup
+
+```bash
+# Check each tool
+command -v psql    # PostgreSQL
+command -v mysql   # MySQL
+command -v mongosh # MongoDB
+command -v redis-cli
+command -v sqlite3
+
+# Install PostgreSQL client — macOS: brew install libpq | Ubuntu: sudo apt install postgresql-client
+# Install MySQL client    — macOS: brew install mysql-client | Ubuntu: sudo apt install mysql-client
+# Install MongoDB shell   — macOS: brew install mongosh | Ubuntu: https://www.mongodb.com/try/download/shell
+# Install Redis CLI       — macOS: brew install redis | Ubuntu: sudo apt install redis-tools
+# Install SQLite3         — macOS: brew install sqlite | Ubuntu: sudo apt install sqlite3
+
+# For connection strings with passwords, use vault:
+#   vault_save postgres_url "postgresql://user:pass@host:5432/dbname"
+#   vault_save mysql_password "secret"
+# Keys use lowercase_underscore; auto-inject as UPPERCASE env vars (e.g. $POSTGRES_URL)
+```
+
 ## PostgreSQL
 
 ```bash

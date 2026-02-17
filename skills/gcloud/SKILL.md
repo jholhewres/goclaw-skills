@@ -7,6 +7,32 @@ metadata: {"openclaw":{"always":false,"emoji":"🌐"}}
 
 Interface com serviços GCP via gcloud e gsutil.
 
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v gcloud && gcloud --version
+   ```
+
+2. **Install:**
+   ```bash
+   # macOS
+   brew install google-cloud-sdk
+
+   # Official installer (Linux)
+   curl https://sdk.cloud.google.com | bash
+   exec -l $SHELL
+   ```
+
+3. **Auth:**
+   ```bash
+   # Interactive (browser)
+   gcloud auth login
+
+   # Non-interactive (service account)
+   gcloud auth activate-service-account --key-file=<key.json>
+   ```
+
 ## Compute Engine
 
 ```bash

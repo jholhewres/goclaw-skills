@@ -14,8 +14,19 @@ Manage tasks and projects in Todoist via the REST API v2.
 
 ## Setup
 
-1. Get your API token: Todoist Settings → Integrations → Developer → API Token
-2. Store in vault: `copilot config vault-set TODOIST_API_TOKEN=your_token`
+1. **Check existing credentials:**
+   ```
+   vault_get todoist_api_token
+   ```
+
+2. **If not configured:**
+   - Go to https://todoist.com/prefs/integrations
+   - In Developer section, copy your API Token
+   - Save to vault:
+     ```
+     vault_save todoist_api_token "your-token-here"
+     ```
+   The token is auto-injected as `$TODOIST_API_TOKEN`.
 
 ## List tasks
 

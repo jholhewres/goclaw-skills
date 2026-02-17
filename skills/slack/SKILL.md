@@ -15,13 +15,20 @@ Interact with Slack workspaces using the Slack Web API.
 
 ## Setup
 
-1. Create a Slack App at https://api.slack.com/apps
-2. Add Bot Token Scopes: `chat:write`, `channels:read`, `users:read`
-3. Install to workspace and copy the Bot User OAuth Token
-4. Set environment variable:
-   ```bash
-   export SLACK_BOT_TOKEN="xoxb-your-token"
+1. **Check existing credentials:**
    ```
+   vault_get slack_bot_token
+   ```
+
+2. **If not configured:**
+   - Go to https://api.slack.com/apps and create a Slack App
+   - Add Bot Token Scopes: `chat:write`, `channels:read`, `users:read`
+   - Install to workspace, copy the Bot User OAuth Token
+   - Save to vault:
+     ```
+     vault_save slack_bot_token "xoxb-your-token-here"
+     ```
+   The token is auto-injected as `$SLACK_BOT_TOKEN`.
 
 ## Send Messages
 

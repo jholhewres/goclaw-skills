@@ -4,7 +4,28 @@ description: "Advanced Docker Compose: multi-service, scaling, profiles"
 ---
 # Docker Compose Advanced
 
-Use the **bash** tool for advanced Compose workflows.
+Use the **bash** tool for advanced Compose workflows. Modern Docker includes Compose as a plugin: use `docker compose` (with space), not `docker-compose`.
+
+## Setup
+
+1. **Check if installed:**
+   ```bash
+   command -v docker && docker --version && docker compose version
+   ```
+
+2. **Install:**
+   ```bash
+   # macOS
+   brew install docker
+
+   # Ubuntu / Debian (see https://docs.docker.com/engine/install/ubuntu/)
+   sudo apt update && sudo apt install -y ca-certificates curl
+   sudo install -m 0755 -d /etc/apt/keyrings
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
 
 ## Profiles & Environment
 ```bash

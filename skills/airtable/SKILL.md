@@ -15,13 +15,21 @@ Interact with Airtable using their REST API.
 
 ## Setup
 
-1. Get API key: https://airtable.com/account
-2. Get Base ID from API docs: https://airtable.com/api
-3. Set environment variables:
-   ```bash
-   export AIRTABLE_API_KEY="patxxx"
-   export AIRTABLE_BASE_ID="appxxx"
+1. **Check existing credentials:**
    ```
+   vault_get airtable_api_key
+   vault_get airtable_base_id
+   ```
+
+2. **If not configured:**
+   - Get Personal Access Token: https://airtable.com/account (Personal access tokens)
+   - Get Base ID from API docs: https://airtable.com/api
+   - Save to vault (two separate calls):
+     ```
+     vault_save airtable_api_key "patxxx"
+     vault_save airtable_base_id "appxxx"
+     ```
+   Keys are auto-injected as `$AIRTABLE_API_KEY` and `$AIRTABLE_BASE_ID`.
 
 ## List Records
 

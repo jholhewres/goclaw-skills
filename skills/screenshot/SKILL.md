@@ -12,15 +12,28 @@ requires:
 
 Capture screenshots of websites using various methods.
 
+## Setup
+
+**API keys** (for Option 1; store in vault, never use `export`):
+- apiflash: `vault_save apiflash_key "your_key"`
+- screenshotapi: `vault_save screenshotapi_key "your_key"`
+- urlbox: `vault_save urlbox_key "your_key"`
+- Keys auto-inject as uppercase env vars.
+
+**Playwright** (Option 3 — recommended, no API key):
+- **macOS**: `brew install node` then `npx playwright install`
+- **Ubuntu**: `sudo apt install nodejs npm` then `npx playwright install`
+
+**wkhtmltoimage** (Option 4): `sudo apt install wkhtmltopdf`
+**CutyCapt** (Option 5): `sudo apt install cutycapt`
+
 ## Option 1: Screenshot API Services
 
 ```bash
-# apiflash.com (free tier)
-export APIFLASH_KEY="your_key"
+# apiflash.com (free tier) — key from vault
 curl -s "https://api.apiflash.com/v1/urltoimage?url=https://example.com&access_key=$APIFLASH_KEY&full_page=true" -o screenshot.png
 
 # screenshotapi.net
-export SCREENSHOTAPI_KEY="your_key"
 curl -s "https://api.screenshotapi.net/screenshot?token=$SCREENSHOTAPI_KEY&url=https://example.com&full=true" -o screenshot.png
 
 # urlbox.io

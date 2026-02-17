@@ -12,6 +12,22 @@ requires:
 
 Extract text from images and scanned documents.
 
+## Setup
+
+```bash
+# Check if installed
+command -v tesseract
+
+# Install — macOS
+brew install tesseract tesseract-lang
+
+# Install — Ubuntu/Debian
+sudo apt install tesseract-ocr
+
+# Language packs (e.g. Portuguese): sudo apt install tesseract-ocr-por
+# More: tesseract-ocr-<lang> (eng, por, spa, fra, etc.)
+```
+
 ## Option 1: Tesseract (Local)
 
 ```bash
